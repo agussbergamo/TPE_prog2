@@ -7,9 +7,18 @@ import java.util.ArrayList;
 public abstract class Participante {
 
     public abstract int getEdad();
+    
     public abstract ArrayList<String> getGeneros();
+    
+    public abstract int getCantGeneros();
+    
     public abstract ArrayList<String> getIdiomas();
+    
+    public abstract int getCantidadIdiomas();
+    
     public abstract ArrayList<String> getInstrumentos();
+    
+    public abstract int getCantidadInstrumentos();
 
     public abstract ArrayList<Participante> getParticipantesAptos(Criterio c);
 

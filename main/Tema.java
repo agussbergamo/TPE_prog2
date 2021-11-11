@@ -1,6 +1,4 @@
 package main;
-import criterios.Criterio;
-import criterios.CriterioIdioma;
 import requerimientos.Requerimiento;
 import requerimientos.RequerimientoAnd;
 import requerimientos.RequerimientoGenero;

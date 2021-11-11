@@ -8,6 +8,6 @@ public class ComparadorIdiomas implements Comparator<Participante>{
 
     @Override
     public int compare(Participante o1, Participante o2) {
-        return o1.getIdiomas().size() - o2.getIdiomas().size();
+        return o1.getCantidadIdiomas() - o2.getCantidadIdiomas();
     }
 }

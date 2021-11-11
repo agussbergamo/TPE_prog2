@@ -9,6 +9,6 @@ public class ComparadorInstrumentos implements Comparator<Participante> {
 
     @Override
     public int compare(Participante o1, Participante o2) {
-        return o1.getInstrumentos().size() - o2.getInstrumentos().size();
+        return o1.getCantidadInstrumentos() - o2.getCantidadInstrumentos();
     }
 }

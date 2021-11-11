@@ -91,5 +91,4 @@ public class Jurado {
 		}
 		return aptos;
 	}
-	
 }

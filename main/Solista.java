@@ -91,7 +91,7 @@ public class Solista extends Participante{
 	
 	@Override
 	public String toString() {
-		return "Solista [nombre=" + nombre + ", apellido=" + apellido +"]";
+		return "Solista [nombre=" + nombre + ", apellido=" + apellido +"] \n";
 	}
 
 	@Override
@@ -99,5 +99,20 @@ public class Solista extends Participante{
 		if (instrumentos.contains(instrumento))
 			return 1;
 		return 0;
+	}
+
+	@Override
+	public int getCantidadIdiomas() {
+		return idiomas.size();
+	}
+
+	@Override
+	public int getCantGeneros() {
+		return generos.size();
+	}
+
+	@Override
+	public int getCantidadInstrumentos() {
+		return instrumentos.size();
 	}
 }

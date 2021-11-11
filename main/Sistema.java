@@ -37,7 +37,7 @@ public class Sistema {
 		ArrayList<Participante> aptosBatalla = new ArrayList<Participante>();
 		for (int i=0; i<jurados.size(); i++) {
 			ArrayList<Participante> aptosJuradoi = jurados.get(i).getParticipantesAptos(c);
-			for (int j=0; j<aptosJuradoi.size(); j++) {
+			for (int j=0; j<aptosJuradoi.size()-1; j++) {
 				if (!aptosBatalla.contains(aptosJuradoi.get(j)))
 						aptosBatalla.add(aptosJuradoi.get(j));
 			} 
@@ -45,26 +45,21 @@ public class Sistema {
 		return aptosBatalla;
 	}
 
-	public Participante ganadorBatalla(Comparator<Participante> c, Participante p1,
-									   Participante p2){
+	public Participante ganadorBatalla(Comparator<Participante> c, Participante p1, Participante p2){
 		int res = c.compare(p1, p2);
-
 		if (res > 0)
 			return p1;
 		if (res < 0)
 			return p2;
-
 		return null;
 	}
 
 	public ArrayList<Participante> rankingBatalla(Comparator<Participante> c){
 		ArrayList<Participante> rankingParticipantes= new ArrayList<>(participantes);
 		Collections.sort(rankingParticipantes, c);
-
 		return rankingParticipantes;
 	}
-	
-	
+
 }
 
 

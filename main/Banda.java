@@ -38,7 +38,6 @@ public class Banda extends Participante{
     @Override
     public ArrayList<String> getIdiomas() {
         ArrayList<String> idiomas = new ArrayList<>();
-
         for (Participante p: participantes){
             ArrayList<String> idiomasParticipante = p.getIdiomas();
             for (String i:idiomasParticipante){
@@ -96,6 +95,21 @@ public class Banda extends Participante{
 
     @Override
     public String toString() {
-        return "Banda ["+ nombreBanda + "]";
+        return "Banda ["+ nombreBanda + "]\n";
     }
+
+	@Override
+	public int getCantidadIdiomas() {
+		return getIdiomas().size();
+	}
+
+	@Override
+	public int getCantGeneros() {
+		return getGeneros().size();
+	}
+
+	@Override
+	public int getCantidadInstrumentos() {
+		return getInstrumentos().size();
+	}
 }

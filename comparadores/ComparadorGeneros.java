@@ -9,6 +9,6 @@ public class ComparadorGeneros implements Comparator<Participante> {
 
     @Override
     public int compare(Participante o1, Participante o2) {
-        return o2.getGeneros().size() - o1.getGeneros().size();
+        return o1.getCantGeneros() - o2.getCantGeneros();
     }
 }
