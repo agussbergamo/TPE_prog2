@@ -1,4 +1,8 @@
 package main;
+import criterios.Criterio;
+import criterios.CriterioIdioma;
+import requerimientos.Requerimiento;
+
 import java.util.ArrayList;
 
 public class Tema {
@@ -7,6 +11,7 @@ public class Tema {
 	private String idioma;
 	private ArrayList<String> generos;	
 	private ArrayList<String> instrumentos;
+	private Criterio criterioInterpretacion;
 	
 	public Tema (String titulo, String idioma) {
 		this.titulo = titulo;
@@ -47,6 +52,29 @@ public class Tema {
 	public void addInstrumento(String i) {
 		if (!instrumentos.contains(i))
 			instrumentos.add(i);
+	}
+
+	public boolean puedeSerInterpretado(Participante p, Requerimiento r){
+		//if (r.puedeSerInterpretado(this)
+
+		return false;
+	}
+
+
+	public boolean tieneGenero(Participante p){
+		for (String g:generos){
+			if(p.cantaGenero(g))
+				return true;
+		}
+		return false;
+	}
+
+	public boolean tieneInstrumento(Participante p, int cant){
+		for (String i:instrumentos){
+			if (p.tocaInstrumento(i) && p.cantTocanInstrumento(i) >= cant)
+				return true;
+		}
+		return false;
 	}
 	
 	

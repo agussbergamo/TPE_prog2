@@ -1,6 +1,6 @@
 package main;
 
-import criterio.Criterio;
+import criterios.Criterio;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -26,11 +26,9 @@ public class Banda extends Participante{
 
     @Override
     public ArrayList<String> getGeneros() {
-        ArrayList<String> generosEnComun = new ArrayList<>();
-        for (int i = 0; i < participantes.size(); i++){
-            generosEnComun.addAll(participantes.get(i).getGeneros());
-        }
-        for (int i = 0; i < participantes.size(); i++){
+        ArrayList<String> generosEnComun = participantes.get(0).getGeneros();
+
+        for (int i = 1; i < participantes.size(); i++){
             generosEnComun.retainAll(participantes.get(i).getGeneros());
         }
         Collections.sort(generosEnComun);
@@ -69,7 +67,7 @@ public class Banda extends Participante{
 
     @Override
     public ArrayList<Participante> getParticipantesAptos(Criterio c) {
-        ArrayList<Participante> aptos = new ArrayList<Participante>();
+        ArrayList<Participante> aptos = new ArrayList<>();
         if (c.cumple(this)) {
             aptos.add(this);
         }
@@ -81,7 +79,16 @@ public class Banda extends Participante{
         }
         return aptos;
     }
-    /*
+
+    @Override
+    public int cantTocanInstrumento(String instrumento) {
+        int contador = 0;
+        for (Participante p:participantes){
+            contador+= p.cantTocanInstrumento(instrumento);
+        }
+        return contador;
+    }
+/*
     @Override
     public ElementoComposite copia(Filtro f) {
         Seccion copia = new Seccion(this.getDescripcion(), this.getNombreImagen());

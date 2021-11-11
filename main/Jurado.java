@@ -2,7 +2,7 @@ package main;
 import java.util.ArrayList;
 import java.util.Collections;
 
-import criterio.Criterio;
+import criterios.Criterio;
 
 public class Jurado {
 
@@ -30,7 +30,7 @@ public class Jurado {
 	}
 	
 	public ArrayList<String> getInstrumentosEquipo() {
-		ArrayList<String> instrumentosEquipo = new ArrayList<String>();
+		ArrayList<String> instrumentosEquipo = new ArrayList<>();
 		for (int i=0; i<equipo.size(); i++) {
 			ArrayList<String> instrumentosParticipantei = equipo.get(i).getInstrumentos();
 			for (int j=0; j<instrumentosParticipantei.size(); j++) {
@@ -42,7 +42,7 @@ public class Jurado {
 	}
 
 	public ArrayList<String> getIdiomasEquipo() {
-		ArrayList<String> idiomasEquipo = new ArrayList<String>();
+		ArrayList<String> idiomasEquipo = new ArrayList<>();
 		for (int i=0; i<equipo.size(); i++) {
 			ArrayList<String> idiomasParticipantei = equipo.get(i).getIdiomas();
 			for (int j=0; j<idiomasParticipantei.size(); j++) {
@@ -54,7 +54,7 @@ public class Jurado {
 	}
 
 	public ArrayList<String> getGenerosEquipo() {
-		ArrayList<String> generosEquipo = new ArrayList<String>();
+		ArrayList<String> generosEquipo = new ArrayList<>();
 		for (int i=0; i<equipo.size(); i++) {
 			ArrayList<String> generosParticipantei = equipo.get(i).getGeneros();
 			for (int j=0; j<generosParticipantei.size(); j++) {
@@ -75,10 +75,9 @@ public class Jurado {
 	}
 	
 	public ArrayList<Participante> getParticipantesAptos(Criterio c) {
-		ArrayList<Participante> aptos = new ArrayList<Participante>();
+		ArrayList<Participante> aptos = new ArrayList<>();
 		for(int i=0; i<equipo.size(); i++) {
-			if(c.cumple(equipo.get(i)))
-				aptos.add(equipo.get(i));
+			aptos.addAll(equipo.get(i).getParticipantesAptos(c));
 		}
 		return aptos;
 	}

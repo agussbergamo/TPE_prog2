@@ -1,4 +1,4 @@
-package criterio;
+package criterios;
 
 import main.Participante;
 

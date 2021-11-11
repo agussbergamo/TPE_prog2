@@ -1,6 +1,9 @@
 package main;
 import java.util.ArrayList;
-import criterio.Criterio;
+import java.util.Collections;
+import java.util.Comparator;
+
+import criterios.Criterio;
 
 
 public class Sistema {
@@ -40,6 +43,25 @@ public class Sistema {
 			} 
 		}
 		return aptosBatalla;
+	}
+
+	public Participante ganadorBatalla(Comparator<Participante> c, Participante p1,
+									   Participante p2){
+		int res = c.compare(p1, p2);
+
+		if (res > 0)
+			return p1;
+		if (res < 0)
+			return p2;
+
+		return null;
+	}
+
+	public ArrayList<Participante> rankingBatalla(Comparator<Participante> c){
+		ArrayList<Participante> rankingParticipantes= new ArrayList<>(participantes);
+		Collections.sort(rankingParticipantes, c);
+
+		return rankingParticipantes;
 	}
 	
 	

@@ -1,5 +1,5 @@
 package main;
-import criterio.Criterio;
+import criterios.Criterio;
 
 import java.util.ArrayList;
 
@@ -93,6 +93,11 @@ public class Solista extends Participante{
 	public String toString() {
 		return "Participante [nombre=" + nombre + ", apellido=" + apellido + ", edad=" + edad + "]";
 	}
-	
-	
+
+	@Override
+	public int cantTocanInstrumento(String instrumento) {
+		if (instrumentos.contains(instrumento))
+			return 1;
+		return 0;
+	}
 }

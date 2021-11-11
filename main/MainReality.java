@@ -1,8 +1,4 @@
 package main;
-import criterio.CriterioIdioma;
-import criterio.CriterioGenero;
-import criterio.CriterioInstrumento;
-import criterio.CriterioAnd;
 
 public class MainReality {
 
