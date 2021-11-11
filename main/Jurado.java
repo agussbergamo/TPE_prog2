@@ -1,7 +1,6 @@
 package main;
 import java.util.ArrayList;
 import java.util.Collections;
-
 import criterios.Criterio;
 
 public class Jurado {
@@ -9,13 +8,19 @@ public class Jurado {
 	private String nombre;
 	private String apellido;
 	private ArrayList<Participante> equipo;
+	private Criterio criterioDeAceptacion;
 	
 	public Jurado (String nombre, String apellido) {
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.equipo = new ArrayList<Participante>();
+		this.criterioDeAceptacion = null;
 	}
-	
+
+	public void setCriterioDeAceptacion(Criterio criterioDeAceptacion) {
+		this.criterioDeAceptacion = criterioDeAceptacion;
+	}
+
 	public String getNombre() {
 		return nombre;
 	}
@@ -25,8 +30,13 @@ public class Jurado {
 	}
 
 	public void addParticipante(Participante p) {
-		if(!equipo.contains(p))
-			equipo.add(p);
+		if(!equipo.contains(p)){
+			if (criterioDeAceptacion == null)
+				equipo.add(p);
+			else
+				if (criterioDeAceptacion.cumple(p))
+					equipo.add(p);
+		}
 	}
 	
 	public ArrayList<String> getInstrumentosEquipo() {

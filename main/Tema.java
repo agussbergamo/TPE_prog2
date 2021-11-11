@@ -2,6 +2,9 @@ package main;
 import criterios.Criterio;
 import criterios.CriterioIdioma;
 import requerimientos.Requerimiento;
+import requerimientos.RequerimientoAnd;
+import requerimientos.RequerimientoGenero;
+import requerimientos.RequerimientoIdioma;
 
 import java.util.ArrayList;
 
@@ -11,13 +14,14 @@ public class Tema {
 	private String idioma;
 	private ArrayList<String> generos;	
 	private ArrayList<String> instrumentos;
-	private Criterio criterioInterpretacion;
+	private Requerimiento requerimiento;
 	
 	public Tema (String titulo, String idioma) {
 		this.titulo = titulo;
 		this.idioma = idioma; 
 		this.generos = new ArrayList<String>();
 		this.instrumentos = new ArrayList<String>();
+		this.requerimiento = new RequerimientoAnd(new RequerimientoIdioma(), new RequerimientoGenero());
 	}
 
 	public String getTitulo() {
@@ -54,12 +58,13 @@ public class Tema {
 			instrumentos.add(i);
 	}
 
-	public boolean puedeSerInterpretado(Participante p, Requerimiento r){
-		//if (r.puedeSerInterpretado(this)
-
-		return false;
+	public void setRequerimiento(Requerimiento requerimiento) {
+		this.requerimiento = requerimiento;
 	}
 
+	public boolean puedeSerInterpretado(Participante p){
+		return requerimiento.puedeSerInterpretado(this, p);
+	}
 
 	public boolean tieneGenero(Participante p){
 		for (String g:generos){
@@ -76,8 +81,4 @@ public class Tema {
 		}
 		return false;
 	}
-	
-	
-	
-	
 }

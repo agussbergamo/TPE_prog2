@@ -91,7 +91,7 @@ public class Solista extends Participante{
 	
 	@Override
 	public String toString() {
-		return "Participante [nombre=" + nombre + ", apellido=" + apellido + ", edad=" + edad + "]";
+		return "Solista [nombre=" + nombre + ", apellido=" + apellido +"]";
 	}
 
 	@Override

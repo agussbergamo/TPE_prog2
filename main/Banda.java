@@ -80,6 +80,11 @@ public class Banda extends Participante{
         return aptos;
     }
 
+    public void addParticipante(Participante p){
+        if (!participantes.contains(p))
+            participantes.add(p);
+    }
+
     @Override
     public int cantTocanInstrumento(String instrumento) {
         int contador = 0;
@@ -88,22 +93,9 @@ public class Banda extends Participante{
         }
         return contador;
     }
-/*
-    @Override
-    public ElementoComposite copia(Filtro f) {
-        Seccion copia = new Seccion(this.getDescripcion(), this.getNombreImagen());
-        for(ElementoComposite e: elementos) {
-            ElementoComposite copiaHijo = e.copia(f);
-            if(copiaHijo != null)
-                copia.agregarElemento(e.copia(f));
-        }
-        if(copia.tieneElementos())
-            return copia;
-        else
-            return null;
-    }
 
-    public boolean tieneElementos(){
-        return !elementos.isEmpty();
-    }*/
+    @Override
+    public String toString() {
+        return "Banda ["+ nombreBanda + "]";
+    }
 }
